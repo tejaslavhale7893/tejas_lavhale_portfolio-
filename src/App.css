@@ -1415,7 +1415,7 @@ button:hover {
 /* /////////////////////resume */
 
 .liItems{
-    color:black;
+    color:rgb(8, 0, 0);
 }
 
   
@@ -1480,7 +1480,7 @@ button:hover {
 /* PRINT STYLE (PDF CLEAN) */
 @media print {
     .resume-container{
-        background:white;
+        background:rgb(213, 30, 30);
     }
 
     .download-btn{
