@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Chatbot from './Chatbot'
 import Sidebar from './Sidebar'
-import { LuBell, LuLanguages, LuBot, LuMenu, LuX } from 'react-icons/lu'
+import { LuBell, LuBot, LuMenu } from 'react-icons/lu'
+import { FaRobot } from "react-icons/fa"
+import { FaExchangeAlt } from "react-icons/fa"
 import { useLanguage } from '../context/LanguageContext'
-import { FaPlus } from "react-icons/fa";
-import { FaExchangeAlt } from "react-icons/fa";
 
 function Navbar() {
     const { lang, toggleLanguage, t } = useLanguage();
+
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,41 +24,60 @@ function Navbar() {
         return () => clearInterval(interval);
     }, []);
 
+    const handleMenuClick = () => {
+        setIsMobileMenuOpen(false);
+    };
+
     return (
         <div>
+            {/* NAVBAR */}
             <div className="navbar">
+                
+                {/* LOGO */}
                 <h3 className='navbar__logo'>
                     <img src="/t.png" alt="logo" className="navbar__logo-img" />
                 </h3>
 
+                {/* MENU */}
                 <ul className={`navbar__menu ${isMobileMenuOpen ? 'active' : ''}`}>
-                    <Link to={"/"} onClick={() => setIsMobileMenuOpen(false)}><li className='navbar__item'>{t.home}</li></Link>
-                    <Link to={"/about"} onClick={() => setIsMobileMenuOpen(false)}> <li className='navbar__item'>{t.about}</li></Link>
-                    <Link to={"/resume"} onClick={() => setIsMobileMenuOpen(false)}>   <li className='navbar__item'>{t.resume}</li></Link>
-                    <Link to={"/skill"} onClick={() => setIsMobileMenuOpen(false)}>  <li className='navbar__item'>{t.skill}</li></Link>
-                    <Link to={"/contact"} onClick={() => setIsMobileMenuOpen(false)}>  <li className='navbar__item'>{t.contact}</li></Link>
-                    {/* <Link to={"/projects"} onClick={() => setIsMobileMenuOpen(false)}>  <li className='navbar__item'>{t.projects}</li></Link> */}
+                    <Link to="/" onClick={handleMenuClick}><li className='navbar__item'>{t.home}</li></Link>
+                    <Link to="/about" onClick={handleMenuClick}><li className='navbar__item'>{t.about}</li></Link>
+                    <Link to="/resume" onClick={handleMenuClick}><li className='navbar__item'>{t.resume}</li></Link>
+                    <Link to="/skill" onClick={handleMenuClick}><li className='navbar__item'>{t.skill}</li></Link>
+                    <Link to="/contact" onClick={handleMenuClick}><li className='navbar__item'>{t.contact}</li></Link>
                 </ul>
 
+                {/* ACTIONS */}
                 <div className="navbar__actions">
-                    <button className="lang-toggle-btn translate-icon" onClick={toggleLanguage}>
-                      <FaExchangeAlt /> {lang === 'en' ? 'मराठी' : 'EN'}
+
+                    {/* LANGUAGE */}
+                    <button className="lang-toggle-btn" onClick={toggleLanguage}>
+                        <FaExchangeAlt /> {lang === 'en' ? 'मराठी' : 'EN'}
                     </button>
+
+                    {/* NOTIFICATION */}
                     <div className="notification-bell">
                         <LuBell />
                         {clickCount > 0 && <span className="bell-badge">{clickCount}</span>}
                     </div>
+
+                    {/* CHATBOT */}
                     <div className="navbar__chatbot-icon" onClick={() => setIsChatOpen(!isChatOpen)}>
-                        <LuBot /> 
+                        <LuBot />
                     </div>
-                    
-                    <button className="mobile-menu-toggle chat-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+
+                    {/* MOBILE MENU BUTTON */}
+                    <button
+                        className="mobile-menu-toggle"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
                         {isMobileMenuOpen ? <FaRobot /> : <LuMenu />}
                     </button>
 
-                   
                 </div>
             </div>
+
+            {/* COMPONENTS */}
             <Chatbot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
             <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
         </div>
