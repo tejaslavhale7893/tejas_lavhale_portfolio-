@@ -1,15 +1,22 @@
-import React from 'react';
-import { FaWhatsapp, FaInstagram, FaLinkedin, FaFacebook, FaEnvelope } from "react-icons/fa";
+import React from "react";
+import {
+    FaWhatsapp,
+    FaInstagram,
+    FaLinkedin,
+    FaEnvelope
+} from "react-icons/fa";
 import html2pdf from "html2pdf.js";
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from "../context/LanguageContext";
 
 function Resume() {
     const { t } = useLanguage();
 
-    const downloadPDF = () => {
-        const element = document.getElementById("resume");
-        html2pdf().from(element).save("Tejas_Resume.pdf");
-    };
+  const downloadPDF = () => {
+    const link = document.createElement("a");
+    link.href = "/Tejas-Resume.pdf";   // public folder path
+    link.download = "Tejas-Resume.pdf";
+    link.click();
+};
 
     return (
         <div className="resume-container">
@@ -18,7 +25,7 @@ function Resume() {
 
                 {/* NAME */}
                 <div className="nameresume">
-                    <h1>{t.myName}</h1>
+                    <h1>{t?.myName || "Tejas Lavhale"}</h1>
                     <h3>Software Developer</h3>
                 </div>
 
@@ -39,42 +46,41 @@ function Resume() {
                 <div className="section">
                     <h1>Career Objective</h1>
                     <p>
-                        Passionate Software Developer with experience in building responsive web applications
-                        using modern technologies like React, Node.js, and MongoDB. Focused on writing clean
-                        and efficient code.
+                        Passionate Software Developer skilled in React, Node.js and MongoDB.
+                        Focused on clean and efficient code.
                     </p>
                 </div>
 
                 {/* EDUCATION */}
                 <div className="section">
                     <h1>Education</h1>
-                    <ul className='liItems'>
-                        <li className='liItems'>BCA - SRTMU Nanded</li>
-                        <li className='liItems'>Logistic Management - PCET Pune (2025)</li>
+                    <ul>
+                        <li className="liItems">BCA - SRTMU Nanded</li>
+                        <li  className="liItems">Logistic Management - PCET Pune (2025)</li>
                     </ul>
                 </div>
 
                 {/* EXPERIENCE */}
                 <div className="section">
-                    <h1>Experience</h1>
-                    <h3 className='liItems'>Frontend Developer Intern - THE BAAP COMPANY</h3>
-                    <ul className='liItems'> 
-                        <li className='liItems'>Developed React.js web applications</li>
-                        <li className='liItems'>Worked with REST APIs</li>
-                        <li className='liItems'>Built responsive UI using Tailwind & Bootstrap</li>
-                        <li className='liItems'>Used Git & GitHub for version control</li>
+                    <h1 >Experience</h1>
+                    <h3  className="liItems">Frontend Developer Intern - THE BAAP COMPANY</h3>
+                    <ul>
+                        <li  className="liItems">React.js web apps developed</li>
+                        <li  className="liItems">Worked with REST APIs</li>
+                        <li  className="liItems">Responsive UI using Tailwind & Bootstrap</li>
+                        <li  className="liItems">Git & GitHub version control</li>
                     </ul>
                 </div>
 
                 {/* SKILLS */}
                 <div className="section">
-                    <h1 >Technical Skills</h1>
+                    <h1>Technical Skills</h1>
                     <ul>
-                        <li className='liItems'><b>Frontend:</b> HTML5, CSS3, JavaScript (ES6+), React.js, Bootstrap, Tailwind CSS</li>
-                        <li className='liItems'><b>Backend:</b> Node.js, Express.js, REST API</li>
-                        <li className='liItems'><b>Database:</b> MongoDB</li>
-                        <li className='liItems'><b>Tools:</b> Git, GitHub, VS Code</li>
-                        <li className='liItems'><b>Design:</b> Figma (Basic)</li>
+                        <li  className="liItems"><b>Frontend:</b> HTML, CSS, JS, React.js, Tailwind</li>
+                        <li  className="liItems"><b>Backend:</b> Node.js, Express.js</li>
+                        <li  className="liItems"><b>Database:</b> MongoDB</li>
+                        <li  className="liItems"><b>Tools:</b> Git, GitHub, VS Code</li>
+                        <li  className="liItems"><b>Design:</b> Figma</li>
                     </ul>
                 </div>
 
@@ -82,14 +88,14 @@ function Resume() {
                 <div className="section">
                     <h1>Languages</h1>
                     <ul>
-                        <li className='liItems'>Marathi</li>
-                        <li className='liItems'>Hindi</li>
-                        <li className='liItems'>English</li>
+                        <li  className="liItems">Marathi</li>
+                        <li  className="liItems">Hindi</li>
+                        <li  className="liItems">English</li>
                     </ul>
                 </div>
 
                 {/* DOWNLOAD BUTTON */}
-                <button onClick={downloadPDF} className="download-btn">
+                <button className="download-btn" onClick={downloadPDF}>
                     Download Resume
                 </button>
 
