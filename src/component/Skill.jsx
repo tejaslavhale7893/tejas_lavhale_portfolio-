@@ -11,13 +11,13 @@ function Skill() {
         { name: "CSS3", icon: <FaCss3Alt color="#264de4" /> },
         { name: "JavaScript", icon: <FaJs color="#f0db4f" /> },
         { name: "React.js", icon: <FaReact color="#61DBFB" /> },
-        { name: "Node.js", icon: <SiNodedotjs color="#3C873A" /> },
+        // { name: "Node.js", icon: <SiNodedotjs color="#3C873A" /> },
         { name: "Git", icon: <FaGitAlt color="#f34f29" /> },
         { name: "GitHub", icon: <FaGithub /> },
-        { name: "Figma", icon: <SiFigma color="#f24e1e" /> },
+        // { name: "Figma", icon: <SiFigma color="#f24e1e" /> },
         { name: "Tailwind", icon: <SiTailwindcss color="#38bdf8" /> },
-        { name: "MongoDB", icon: <SiMongodb color="#4DB33D" /> },
-        { name: "REST API", icon: "🔗" },
+        // { name: "MongoDB", icon: <SiMongodb color="#4DB33D" /> },
+        // { name: "REST API", icon: "🔗" },
         { name: "Bootstrap", icon: <FaBootstrap color="#7952B3" /> }
     ];
 

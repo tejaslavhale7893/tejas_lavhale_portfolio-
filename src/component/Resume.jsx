@@ -46,7 +46,7 @@ function Resume() {
                 <div className="section">
                     <h1>Career Objective</h1>
                     <p>
-                        Passionate Software Developer skilled in React, Node.js and MongoDB.
+                        Passionate Software Developer skilled in React, java script and HTML.
                         Focused on clean and efficient code.
                     </p>
                 </div>
@@ -55,7 +55,7 @@ function Resume() {
                 <div className="section">
                     <h1>Education</h1>
                     <ul>
-                        <li className="liItems">BCA - SRTMU Nanded</li>
+                        <li className="liItems">BCA(Currently pursuing ) - SRTMU Nanded</li>
                         <li  className="liItems">Logistic Management - PCET Pune (2025)</li>
                     </ul>
                 </div>
@@ -66,7 +66,7 @@ function Resume() {
                     <h3  className="liItems">Frontend Developer Intern - THE BAAP COMPANY</h3>
                     <ul>
                         <li  className="liItems">React.js web apps developed</li>
-                        <li  className="liItems">Worked with REST APIs</li>
+                        {/* <li  className="liItems">Worked with REST APIs</li> */}
                         <li  className="liItems">Responsive UI using Tailwind & Bootstrap</li>
                         <li  className="liItems">Git & GitHub version control</li>
                     </ul>
@@ -77,10 +77,10 @@ function Resume() {
                     <h1>Technical Skills</h1>
                     <ul>
                         <li  className="liItems"><b>Frontend:</b> HTML, CSS, JS, React.js, Tailwind</li>
-                        <li  className="liItems"><b>Backend:</b> Node.js, Express.js</li>
-                        <li  className="liItems"><b>Database:</b> MongoDB</li>
+                        {/* <li  className="liItems"><b>Backend:</b> Node.js, Express.js</li> */}
+                        {/* <li  className="liItems"><b>Database:</b> MongoDB</li> */}
                         <li  className="liItems"><b>Tools:</b> Git, GitHub, VS Code</li>
-                        <li  className="liItems"><b>Design:</b> Figma</li>
+                        {/* <li  className="liItems"><b>Design:</b> Figma</li> */}
                     </ul>
                 </div>
 
